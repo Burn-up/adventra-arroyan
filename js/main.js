@@ -12,12 +12,10 @@ menuToggle.addEventListener("click", (e) => {
   navMenu.classList.toggle("show");
 });
 
-navMenu.addEventListener("click", (e) => {
-  e.stopPropagation();
-});
-
-document.addEventListener("click", () => {
-  navMenu.classList.remove("show");
+document.addEventListener("click", (e) => {
+  if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    navMenu.classList.remove("show");
+  }
 });
 
 navLinks.forEach(link => {
@@ -46,14 +44,8 @@ themeToggle.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
-  if (currentScroll <= 0) {
-    header.classList.remove("hide");
-    return;
-  }
-
-  if (currentScroll > lastScroll) {
+  if (currentScroll > lastScroll && currentScroll > 100) {
     header.classList.add("hide");
-    navMenu.classList.remove("show");
   } else {
     header.classList.remove("hide");
   }

@@ -83,6 +83,7 @@ button{
   z-index: 1000;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+  transitiom: too .3s ease;
 }
 
 .navbar{
@@ -260,15 +261,15 @@ body.dark .contact-info img{
   border-top: 1px solid var(--border);
 }
 
-.header{
-  transition: transform .3s ease;
-}
 
-.header.hide{
+.header .hide{
   transform: translateY(-100%);
+  top: -72px;
 }
 
 .btn:hover{
   background: var(--primary-hover);
   transform: translateY(-2px);
 }
+
+
