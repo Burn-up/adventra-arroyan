@@ -3,6 +3,9 @@ const navMenu = document.getElementById("nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
+const header = document.querySelector(".header");
+
+let lastScroll = 0;
 
 menuToggle.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -38,4 +41,22 @@ themeToggle.addEventListener("click", () => {
     themeIcon.src = "assets/icons/moon.svg";
     localStorage.setItem("theme", "light");
   }
+});
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll <= 0) {
+    header.classList.remove("hide");
+    return;
+  }
+
+  if (currentScroll > lastScroll) {
+    header.classList.add("hide");
+    navMenu.classList.remove("show");
+  } else {
+    header.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
 });

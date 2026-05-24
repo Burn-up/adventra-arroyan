@@ -1,41 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
 
-/* RESET */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ROOT */
 :root{
   --primary: #0EA5A4;
   --primary-hover: #0F766E;
-
   --heading: #1E293B;
   --text: #475569;
-
   --bg: #F8FAFC;
   --card: #FFFFFF;
   --border: #E2E8F0;
-
   --shadow: 0 4px 20px rgba(0,0,0,.08);
-
   --heading-font: 'Poppins', sans-serif;
   --body-font: 'Inter', sans-serif;
 }
 
-/* DARK MODE */
 body.dark{
   --heading: #F8FAFC;
   --text: #CBD5E1;
-
   --bg: #0F172A;
   --card: #1E293B;
   --border: #334155;
 }
 
-/* GLOBAL */
 html{
   scroll-behavior: smooth;
 }
@@ -86,7 +77,6 @@ button{
   font-size: 2rem;
 }
 
-/* HEADER */
 .header{
   position: sticky;
   top: 0;
@@ -116,14 +106,18 @@ button{
   height: 36px;
 }
 
-/* ICON */
 .menu-toggle img,
 .theme-toggle img{
   width: 24px;
   height: 24px;
 }
 
-/* MOBILE MENU */
+body.dark .menu-toggle img,
+body.dark .theme-toggle img,
+body.dark .contact-info img{
+  filter: invert(1);
+}
+
 .nav-menu{
   position: fixed;
   top: 72px;
@@ -149,7 +143,6 @@ button{
   font-weight: 500;
 }
 
-/* HERO */
 .hero{
   padding: 3rem 0;
 }
@@ -174,7 +167,6 @@ button{
   margin: 1rem 0 2rem;
 }
 
-/* BUTTON */
 .btn{
   display: inline-flex;
   align-items: center;
@@ -191,7 +183,6 @@ button{
   filter: brightness(0) invert(1);
 }
 
-/* CARD */
 .card-grid{
   display: grid;
   gap: 1.5rem;
@@ -220,7 +211,6 @@ button{
   padding: 0 1rem 1rem;
 }
 
-/* GALLERY */
 .gallery-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -233,7 +223,6 @@ button{
   border-radius: 1rem;
 }
 
-/* CONTACT */
 .contact-form{
   display: grid;
   gap: 1rem;
@@ -265,54 +254,21 @@ button{
   width: 20px;
 }
 
-/* FOOTER */
 .footer{
   padding: 2rem 0;
   text-align: center;
   border-top: 1px solid var(--border);
 }
 
-/* DESKTOP */
-@media (min-width: 1024px){
+.header{
+  transition: transform .3s ease;
+}
 
-  .menu-toggle{
-    display: none;
-  }
+.header.hide{
+  transform: translateY(-100%);
+}
 
-  .nav-menu{
-    position: static;
-    height: auto;
-    width: auto;
-    flex-direction: row;
-    padding: 0;
-    box-shadow: none;
-    background: transparent;
-    gap: 2rem;
-  }
-
-  .hero-content{
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-
-  .hero-text{
-    text-align: left;
-  }
-
-  .hero-text h1{
-    font-size: 4rem;
-  }
-
-  .card-grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  #destinations .card-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .gallery-grid{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
+.btn:hover{
+  background: var(--primary-hover);
+  transform: translateY(-2px);
 }
